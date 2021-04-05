@@ -13,20 +13,17 @@
 <p>
   <strong>Genres</strong>
 </p>
-<table>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Description</th>
-  </tr>
-  <tbody>
-    <% @game.genres.each do |genre| %>
-    <tr>
-      <td><%= genre.name %></td>
-      <td><%= genre.description %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<tbody>
+  <th scope="col">Name</th>
+  <th scope="col">Description</th>
+  <br>
+  <% @game.genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+        <td><%= genre.description %></td>
+      </tr>
+      <% end %>
+</tbody>
 
 <br>
 

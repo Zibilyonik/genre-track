@@ -10,14 +10,13 @@
   <%= @genre.description %>
 </p>
 
-<tbody>
+<p>
   <% @genre.games.each do |game| %>
       <tr>
         <td><%= game.title %></td>
         <td><%= game.developer %></td>
       </tr>
-      <% end %>
-</tbody>
+</p>
 
 <%= link_to 'Edit', edit_genre_path(@genre) %> |
 <%= link_to 'Back', genres_path %>
