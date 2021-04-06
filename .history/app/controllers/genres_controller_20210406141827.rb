@@ -50,9 +50,11 @@ class GenresController < ApplicationController
 
   # DELETE /genres/1 or /genres/1.json
   def destroy
-    @genre = current_user.genres.find(params[:id])
-    @genre.destroy!
-    redirect_to user_genres_path(current_user)
+    @genre.destroy
+    respond_to do |format|
+      format.html { redirect_to genres_url, notice: "Genre was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :games
   end
   resources :sessions, only: [:create, :new, :destroy]
-  root 'sessions#new'
+  root '/login'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

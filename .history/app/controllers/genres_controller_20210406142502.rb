@@ -53,6 +53,10 @@ class GenresController < ApplicationController
     @genre = current_user.genres.find(params[:id])
     @genre.destroy!
     redirect_to user_genres_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to genres_url, notice: "Genre was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private

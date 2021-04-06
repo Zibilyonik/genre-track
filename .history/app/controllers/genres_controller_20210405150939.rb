@@ -3,17 +3,16 @@ class GenresController < ApplicationController
 
   # GET /genres or /genres.json
   def index
-    @genres = current_user.genres.all
+    @genres = Genre.all
   end
 
   # GET /genres/1 or /genres/1.json
   def show
-    @genre = current_user.genres.find(params[:id])
   end
 
   # GET /genres/new
   def new
-    @genre = current_user.genres.new
+    @genre = Genre.new
   end
 
   # GET /genres/1/edit
@@ -22,11 +21,11 @@ class GenresController < ApplicationController
 
   # POST /genres or /genres.json
   def create
-    @genre = current_user.genres.build(genre_params)
+    @genre = Genre.new(genre_params)
 
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to user_genres_path(current_user), notice: "Genre was successfully created." }
+        format.html { redirect_to @genre, notice: "Genre was successfully created." }
         format.json { render :show, status: :created, location: @genre }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,15 +49,17 @@ class GenresController < ApplicationController
 
   # DELETE /genres/1 or /genres/1.json
   def destroy
-    @genre = current_user.genres.find(params[:id])
-    @genre.destroy!
-    redirect_to user_genres_path(current_user)
+    @genre.destroy
+    respond_to do |format|
+      format.html { redirect_to genres_url, notice: "Genre was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_genre
-      @genre = current_user.genres.find(params[:id])
+      @genre = Genre.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

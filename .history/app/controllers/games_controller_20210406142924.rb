@@ -25,6 +25,7 @@ class GamesController < ApplicationController
   def create
     @genre = current_user.genres.all
     @game = current_user.games.build(game_params)
+
     respond_to do |format|
       if @game.save
         format.html { redirect_to user_games_path(current_user), notice: "Game was successfully created." }

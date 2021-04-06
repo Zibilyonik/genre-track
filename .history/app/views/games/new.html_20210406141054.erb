@@ -2,4 +2,4 @@
 
 <%= render 'form', game: @game %>
 <%= select_tag "genres", options_from_collection_for_select(current_user.genres.all, "name", "description") %>
-<%= link_to 'Back', user_games_path %>
+<%= link_to 'Back', games_path %>

@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_153711) do
+ActiveRecord::Schema.define(version: 2021_04_06_110354) do
 
   create_table "games", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "developer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_153711) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

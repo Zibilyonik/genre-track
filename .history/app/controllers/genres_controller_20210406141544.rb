@@ -22,7 +22,7 @@ class GenresController < ApplicationController
 
   # POST /genres or /genres.json
   def create
-    @genre = current_user.genres.build(genre_params)
+    @genre = current_user.genres.build(game_params)
 
     respond_to do |format|
       if @genre.save
@@ -50,15 +50,17 @@ class GenresController < ApplicationController
 
   # DELETE /genres/1 or /genres/1.json
   def destroy
-    @genre = current_user.genres.find(params[:id])
-    @genre.destroy!
-    redirect_to user_genres_path(current_user)
+    @genre.destroy
+    respond_to do |format|
+      format.html { redirect_to genres_url, notice: "Genre was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_genre
-      @genre = current_user.genres.find(params[:id])
+      @genre = Genre.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -9,7 +9,6 @@ class GamesController < ApplicationController
   # GET /games/1 or /games/1.json
   def show
     @game = current_user.games.find(params[:id])
-    @genres = @game.genres.all
   end
 
   # GET /games/new
@@ -23,8 +22,8 @@ class GamesController < ApplicationController
 
   # POST /games or /games.json
   def create
-    @genre = current_user.genres.all
     @game = current_user.games.build(game_params)
+
     respond_to do |format|
       if @game.save
         format.html { redirect_to user_games_path(current_user), notice: "Game was successfully created." }

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to user, notice: "Welcome back, #{user.username}!"
     else
       flash.now.alert = "Invalid Username"
-      redirect_to user_path(current_user)
+      redirect_to user_path
     end
   end
 
