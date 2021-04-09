@@ -7,7 +7,6 @@
 
 <p>
   <strong>Games:</strong>
-  <br>
   <% @user.games.each do |game| %>
       <tr>
         <td><%= game.title %></td>
@@ -17,13 +16,11 @@
           <td><%= link_to 'Destroy', user_game_path(current_user, game.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
-      <br>
     <% end %>
 </p>
 
 <p>
   <strong>Genres:</strong>
-  <br>
   <% @user.genres.each do |genre| %>
     <tr>
       <td><%= genre.name %></td>
