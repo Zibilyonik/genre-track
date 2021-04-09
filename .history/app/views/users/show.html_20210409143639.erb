@@ -11,19 +11,11 @@
       <tr>
         <td><%= game.title %></td>
         <td><%= game.developer %></td>
-        <td><%= link_to 'Show', user_game_path(@user, game.id) %></td>
-        <% if @user = current_user %>
-          <td><%= link_to 'Destroy', user_game_path(current_user, game.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><%= link_to 'Show', user_game_path(current_user, game.id) %></td>
+        <td><%= link_to 'Destroy', user_game_path(current_user, game.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
 </p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
 
 <%= link_to 'Genres', user_genres_path(current_user) %> |
 <%= link_to 'Games', user_games_path(current_user) %>

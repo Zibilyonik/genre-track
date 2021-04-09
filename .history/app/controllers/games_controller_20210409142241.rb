@@ -25,7 +25,6 @@ class GamesController < ApplicationController
   def create
     @genre = current_user.genres.all
     @game = current_user.games.build(game_params)
-    @genres = params[:genre]
     respond_to do |format|
       if @game.save
         format.html { redirect_to user_games_path(current_user), notice: "Game was successfully created." }
@@ -35,7 +34,7 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
-    @genres.each{|x| @game.genres << current_user.genres.find(x)}
+    @game.genres << params[:genre]
   end
 
   # PATCH/PUT /games/1 or /games/1.json

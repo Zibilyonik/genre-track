@@ -20,7 +20,7 @@
     <%= form.label :developer %>
     <%= form.text_field :developer %>
   </div>
-  <%= select_tag :genre, options_from_collection_for_select(current_user.genres, :id, :name), {multiple: true} %>
+  <%= check_box_tag :genre, current_user.genres, :name %>
   <div class="actions">
     <%= form.submit %>
   </div>
