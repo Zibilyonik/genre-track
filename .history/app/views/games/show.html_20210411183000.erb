@@ -35,4 +35,5 @@
 
 <br>
 <%= link_to 'Destroy', user_game_path(current_user, @game), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_user_games_path(current_user, @game) %>
 <%= link_to 'Back', user_games_path %>

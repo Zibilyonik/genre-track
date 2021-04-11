@@ -16,8 +16,8 @@
       <tr>
         <td><%= game.title %></td>
         <td><%= game.developer %></td>
-        <td><%= game.amount %></td>
         <td><%= link_to 'Show', user_game_path(current_user, game.id) %></td>
+        <td><%= link_to 'Destroy', user_game_path(current_user, game.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

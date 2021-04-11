@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/games', to: 'games#create'
   post '/genres', to: 'genres#create'
+  put 'games', to: 'games#edit'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
