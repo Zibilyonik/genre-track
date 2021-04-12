@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Username:</strong>
+  <strong class="main-text">Username:</strong>
   <%= @user.username %>
 </p>
 
 <p>
-  <strong>Games:</strong>
+  <strong class="main-text">Games:</strong>
   <br>
   <% @user.games.each do |game| %>
       <tr>
@@ -22,7 +22,7 @@
 </p>
 
 <p>
-  <strong>Genres:</strong>
+  <strong class="main-text">Genres:</strong>
   <br>
   <% @user.genres.each do |genre| %>
     <tr>
@@ -37,6 +37,11 @@
   <% end %>
 </p>
 
-
-<%= link_to 'Genres', user_genres_path(current_user) %> |
-<%= link_to 'Games', user_games_path(current_user) %>
+<div class="row d-flex flex-column mt-5">
+  <div class="btn btn-primary">
+    <%= link_to 'Genres', user_genres_path(current_user), class: "p-1"%>
+  </div>
+  <div class="btn btn-primary mt-2">
+    <%= link_to 'Games', user_games_path(current_user), class: "p-1" %>
+  </div>
+</div>
