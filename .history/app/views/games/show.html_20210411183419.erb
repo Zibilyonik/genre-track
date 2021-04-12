@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @game.developer %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @game.amount %>
+</p>
+
+<p>
+  <strong>Genres</strong>
+</p>
+<table>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+  </tr>
+  <tbody>
+    <% @genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+      <td><%= genre.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Destroy', user_game_path(current_user, @game), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Edit', edit_user_game_path(current_user, @game), method: :get %>
+<%= link_to 'Back', user_games_path %>
