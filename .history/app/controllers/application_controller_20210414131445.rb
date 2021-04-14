@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
   end
 
   def genreless_games
-    @games = current_user.games.all
+    @games = User.games.all
     @genreless = []
-    @games.each{|x| @genreless << x if x.genres.empty?}
+    @games.each{|x| @genreless < x if x.genres.empty?}
     @genreless
   end
 

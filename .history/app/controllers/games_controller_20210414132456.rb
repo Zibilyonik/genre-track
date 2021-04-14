@@ -27,7 +27,6 @@ class GamesController < ApplicationController
     @games.each {|x| @genreless << x if x.genres.empty?}
     @genreless
   end
-  
   # POST /games or /games.json
   def create
     @genre = current_user.genres.all

@@ -5,7 +5,7 @@
 </p>
 
 <p>
-  <strong class="main-text h2 row justify-content-center"><%= link_to 'Games', user_games_path(current_user), class: "p-1 main-text" %></strong>
+  <strong class="main-text h2 row justify-content-center">Games</strong>
   <br>
   <% @user.games.each do |game| %>
       <tr>
@@ -31,7 +31,14 @@
 </p>
 
 <p>
-  <strong class="main-text h2 row justify-content-center"><%= link_to 'Genres', user_genres_path(current_user), class: "p-1 main-text"%></strong>
+  <strong class="main-text h2 row justify-content-center">Genres</strong>
+  <br>
+  <% @user.genres.each do |genre| %>
+    <tr>
+      <td><p class="h5 row justify-content-center"><%= link_to "#{genre.name}", user_genre_path(@user, genre.id), class: "main-text" %></p></td>
+    </tr>
+    <br>
+  <% end %>
 </p>
 
 <div class="row d-flex flex-column mt-5">

@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/games', to: 'games#create'
   post '/genres', to: 'genres#create'
-  get 'users/:id/external', to: 'games#external'
+  get '/games/external', to: 'games#external'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
