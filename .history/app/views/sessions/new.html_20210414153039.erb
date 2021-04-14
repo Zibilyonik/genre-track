@@ -5,7 +5,7 @@
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
       <%= f.label :name, class: 'form-text main-text' %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', style: "text-transform:lowercase" %>
 
       <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
     <% end %>

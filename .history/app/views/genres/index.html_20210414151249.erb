@@ -16,6 +16,7 @@
       <tr>
         <td><%= link_to "#{genre.name}", user_genre_path(current_user, genre) %></td>
         <td><%= genre.icon %></td>
+        <td><%= link_to 'Show', user_genre_path(current_user, genre.id) %></td>
       </tr>
     <% end %>
   </tbody>

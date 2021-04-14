@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:session][:name])
     if user
       log_in(user)
-      redirect_to user_path(current_user), notice: "Welcome back, #{user.name}!"
+      redirect_to user, notice: "Welcome back, #{user.name}!"
     else
       flash.now.alert = "Invalid Username"
-      redirect_to root_path
+      redirect_to user_path(current_user)
     end
   end
 
