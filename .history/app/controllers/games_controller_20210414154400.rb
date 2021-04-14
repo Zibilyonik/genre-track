@@ -42,7 +42,7 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
-    @genres.each{|x| @game.genres << current_user.genres.find(x)} unless @genres.nil?
+    @genres.each{|x| @game.genres << current_user.genres.find(x)} unless @genres.empty?
   end
 
   # PATCH/PUT /games/1 or /games/1.json
