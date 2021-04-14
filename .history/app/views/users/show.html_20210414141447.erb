@@ -15,3 +15,12 @@
 <p>
   <strong class="main-text h4 row justify-content-center"><%= link_to 'Genres', user_genres_path(current_user), class: "p-1 main-text"%></strong>
 </p>
+
+<div class="row d-flex flex-column mt-5">
+  <div class="btn btn-primary">
+    <%= link_to 'Genres', user_genres_path(current_user), class: "p-1 main-text"%>
+  </div>
+  <div class="btn btn-primary mt-2">
+    <%= link_to 'Games', user_games_path(current_user), class: "p-1 main-text" %>
+  </div>
+</div>
