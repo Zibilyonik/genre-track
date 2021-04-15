@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1 class = "h1 text-center my-5">Games</h1>
+<h1 class = "h1 text-center my-5">Games Without Genres</h1>
 
 <table class = "table table-hover">
   <thead>
@@ -12,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @current_user.games.each do |game| %>
+    <% genreless_games.each do |game| %>
       <tr>
         <td class = "main-text"><%= game.name %></td>
         <td class = "main-text"><%= game.amount %></td>
@@ -27,4 +25,3 @@
 <p>
   <strong class="main-text h4 row justify-content-center"><%= link_to 'New Game', new_user_game_path(current_user), class: "p-1 main-text"%></strong>
 </p>
-
