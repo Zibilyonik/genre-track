@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <h1 class = "h1 text-center mb-2">Icon:</h1>
+  <h1 class = "h1 text-center">Icon:</h1>
   <p class = "h3 text-center mb-4"><%= @genre.icon %></p>
 </p>
 
@@ -14,20 +14,14 @@
   <h1 class = "h1 text-center">Games</h1>
 </p>
 
-<table class = "table table-hover">
-  <tr>
-    <th scope="col" class = "text-center h4">Title</th>
-    <th scope="col" class = "text-center h4">Cost</th>
-  </tr>
-  <tbody>
-    <% @genre.games.each do |game| %>
-    <tr>
-      <td class = "text-center main-text"><%= game.name %></td>
-      <td class = "text-center main-text"><%= game.amount %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<tbody>
+  <% @genre.games.each do |game| %>
+      <tr>
+        <td><%= game.name %></td>
+        <td><%= game.amount %></td>
+      </tr>
+      <% end %>
+</tbody>
 
 
 

@@ -29,11 +29,5 @@
 </table>
 
 <br>
-
-<p>
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', user_game_path(current_user, @game), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" %></strong>
-</p>
-<p>
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', user_games_path, class: "main-text" %></strong>
-</p>
-
+<%= link_to 'Destroy', user_game_path(current_user, @game), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" %>
+<%= link_to 'Back', user_games_path %>

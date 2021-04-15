@@ -20,10 +20,10 @@
     <th scope="col" class = "text-center h4">Cost</th>
   </tr>
   <tbody>
-    <% @genre.games.each do |game| %>
+    <% @games.each do |game| %>
     <tr>
       <td class = "text-center main-text"><%= game.name %></td>
-      <td class = "text-center main-text"><%= game.amount %></td>
+      <td><%= game.amount %></td>
     </tr>
     <% end %>
   </tbody>
