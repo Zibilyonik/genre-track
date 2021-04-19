@@ -1,0 +1,29 @@
+<%= form_with(model: genre) do |form| %>
+  <% if genre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+
+      <ul>
+        <% genre.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1 class = "h1 text-center">Name</h1>
+
+  <div class="field d-flex justify-content-center">
+    <%= form.text_field :name %>
+  </div>
+
+  <h1 class = "h1 text-center mt-2">Icon</h1>
+
+  <div class="field d-flex justify-content-center mb-5">
+    <%= form.number_field :icon %>
+  </div>
+
+  <div class="actions main-text h4 row justify-content-center mt-3">
+    <%= form.submit "Create Game", class: "p-1 main-text submit rounded h2 border-white" %>
+  </div>
+<% end %>

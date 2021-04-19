@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_162307) do
+ActiveRecord::Schema.define(version: 2021_04_14_131437) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "developer"
+    t.text "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
@@ -22,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_04_11_162307) do
   end
 
   create_table "genre_games", force: :cascade do |t|
-    t.integer "game_id", null: false
-    t.integer "genre_id", null: false
+    t.bigint "game_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_genre_games_on_game_id"
@@ -31,15 +33,15 @@ ActiveRecord::Schema.define(version: 2021_04_11_162307) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description"
+    t.text "name", null: false
+    t.text "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.text "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

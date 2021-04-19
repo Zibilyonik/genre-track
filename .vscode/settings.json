@@ -3,5 +3,23 @@
     "erb",
     "gemfile",
     "ruby"
-  ]
+  ],
+  "peacock.color": "#832561",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#bf368d",
+    "activityBar.activeBorder": "#93c738",
+    "activityBar.background": "#bf368d",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#93c738",
+    "activityBarBadge.foreground": "#15202b",
+    "statusBar.background": "#972b70",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#bf368d",
+    "titleBar.activeBackground": "#972b70",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#972b7099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.remoteColor": "#972b70"
 }
