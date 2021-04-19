@@ -24,8 +24,7 @@ class GenresController < ApplicationController
   # POST /genres or /genres.json
   def create
     @genre = current_user.genres.build(genre_params)
-    @icon = params[:icon]
-    @genre.icon = @icon unless @icon.nil?
+    @genre.icon = :icon.first
     respond_to do |format|
       if @genre.save
         format.html { redirect_to user_genres_path(current_user), notice: "Genre was successfully created." }

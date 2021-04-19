@@ -21,7 +21,7 @@
 
   <div class="field d-flex justify-content-center mb-5 row mx-3">
     <% @icons.each do |x|  %>
-      	<%= radio_button_tag :icon, "#{x}" %>
+      	<%= radio_button_tag 'icon', "#{x}" %>
         <%= image_tag("#{x}.png", alt: "#{x}", size: '50x50') %>
     <% end%>
   </div>

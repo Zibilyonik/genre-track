@@ -21,8 +21,8 @@
   <tbody>
     <% @genres.each do |genre| %>
     <tr>
-      <td class = "text-center align-middle main-text"><%= genre.name %></td>
-      <td class = "text-center align-middle main-text"><%= image_tag("#{genre.icon}.png", size: "60x60") if genre.icon? %></td>
+      <td class = "text-center main-text"><%= genre.name %></td>
+      <td class = "text-center main-text"><%= image_tag("#{genre.icon}.png", size: "20x20") if genre.icon? %></td>
     </tr>
     <% end %>
   </tbody>

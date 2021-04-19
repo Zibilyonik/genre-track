@@ -19,9 +19,9 @@
 
   <h1 class = "h1 text-center mt-2">Icon</h1>
 
-  <div class="field d-flex justify-content-center mb-5 row mx-3">
+  <div class="field d-flex justify-content-center mb-5">
     <% @icons.each do |x|  %>
-      	<%= radio_button_tag :icon, "#{x}" %>
+      	<%= radio_button_tag 'icon', "#{x}" %>
         <%= image_tag("#{x}.png", alt: "#{x}", size: '50x50') %>
     <% end%>
   </div>

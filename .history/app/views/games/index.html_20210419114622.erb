@@ -13,12 +13,11 @@
 
   <tbody>
     <% @current_user.games.each do |game| %>
-      <% @genre = game.genres.first%>
       <tr>
-        <td class = "main-text align-middle"><%= game.name %></td>
-        <td class = "main-text align-middle"><%= game.amount %></td>
-        <td class = "align-middle main-text"><%= image_tag("#{@genre.icon}.png", size: "60x60") if @genre.icon? %></td>
-        <td class = "align-middle"><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
+        <td class = "main-text"><%= game.name %></td>
+        <td class = "main-text"><%= game.amount %></td>
+        <td class = "text-center align-middle main-text"><%= image_tag("#{game.genre.icon}.png", size: "60x60") if game.genre.first.icon? %></td>
+        <td><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
       </tr>
     <% end %>
   </tbody>
