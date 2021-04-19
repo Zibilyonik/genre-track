@@ -5,9 +5,8 @@
 <table class = "table table-hover">
   <thead>
     <tr>
-      <th class = "main-text col-4">Title</th>
-      <th class = "main-text px-3">Cost</th>
-      <th class = "main-text">Icon</th>
+      <th class = "main-text col">Title</th>
+      <th class = "main-text col px-3">Cost</th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -17,7 +16,7 @@
       <tr>
         <td class = "main-text align-middle"><%= game.name %></td>
         <td class = "main-text align-middle"><%= game.amount %></td>
-        <td class = "align-middle main-text"><%= image_tag("#{game.genres.first.icon}.png", size: "50x50") unless game.genres.empty? %></td>
+        <td class = "align-middle main-text"><%= image_tag("#{game.genres.first.icon}.png", size: "50x50") %></td>
         <td class = "align-middle"><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
       </tr>
     <% end %>

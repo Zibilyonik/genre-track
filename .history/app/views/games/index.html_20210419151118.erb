@@ -17,7 +17,7 @@
       <tr>
         <td class = "main-text align-middle"><%= game.name %></td>
         <td class = "main-text align-middle"><%= game.amount %></td>
-        <td class = "align-middle main-text"><%= image_tag("#{game.genres.first.icon}.png", size: "50x50") unless game.genres.empty? %></td>
+        <td class = "align-middle main-text"><%= image_tag("#{game.genres.first.icon}.png", size: "50x50") unless game.genre.nil? %></td>
         <td class = "align-middle"><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
       </tr>
     <% end %>

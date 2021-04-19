@@ -27,9 +27,7 @@ class GenresController < ApplicationController
     @icon = params[:icon]
     if @icon.nil?
       @genre.icon = "none"
-    else
-      @genre.icon = @icon
-    end
+    @genre.icon = @icon unless @icon.nil?
     respond_to do |format|
       if @genre.save
         format.html { redirect_to user_genres_path(current_user), notice: "Genre was successfully created." }
