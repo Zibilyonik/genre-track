@@ -13,10 +13,11 @@
 
   <tbody>
     <% @current_user.games.each do |game| %>
+      <% @genre = game.genres.first%>
       <tr>
         <td class = "main-text align-middle"><%= game.name %></td>
         <td class = "main-text align-middle"><%= game.amount %></td>
-        <td class = "align-middle main-text"><%= icon_of_genre(game.genres.first) %></td>
+        <td class = "align-middle main-text"><%= icon_of_genre(game.genre.first) %></td>
         <td class = "align-middle"><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
       </tr>
     <% end %>

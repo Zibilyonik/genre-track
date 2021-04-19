@@ -39,16 +39,15 @@ class ApplicationController < ActionController::Base
     @genreless
   end
 
-  def icon_of_genre(genre)
-    return "None" if genre.nil?
+  def icons(genre)
     @icon = genre.icon
     if @icon
-      render inline: "<%= image_tag(\"#{@icon}.png\", size: \"60x60\") %>"
+      @icon
     else
-      return "No Icon"
+      return ""
     end
   end
-  helper_method :icon_of_genre
+
   helper_method :genreless_games
   helper_method :log_out
   helper_method :log_in

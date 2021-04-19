@@ -13,6 +13,7 @@
 
   <tbody>
     <% @current_user.games.each do |game| %>
+      <% @genre = game.genres.first%>
       <tr>
         <td class = "main-text align-middle"><%= game.name %></td>
         <td class = "main-text align-middle"><%= game.amount %></td>

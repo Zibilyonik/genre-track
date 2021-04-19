@@ -40,10 +40,10 @@ class ApplicationController < ActionController::Base
   end
 
   def icon_of_genre(genre)
-    return "None" if genre.nil?
+    return "No Icon" if genre.nil?
     @icon = genre.icon
     if @icon
-      render inline: "<%= image_tag(\"#{@icon}.png\", size: \"60x60\") %>"
+      render image_tag("#{@icon}.png", size: "60x60")
     else
       return "No Icon"
     end
