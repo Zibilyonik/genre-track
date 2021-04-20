@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :login_required, :only => [:new, :create]
+  skip_before_action :login_required, only: %i[new create]
   def new
     redirect_to user_path(current_user) if logged_in?
     @user = User.new
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to user_path(current_user), notice: "Welcome back, #{user.name}!"
     else
-      flash.now.alert = "Invalid Username"
+      flash.now.alert = 'Invalid Username'
       redirect_to root_path
     end
   end
@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
   end
 
   private
-  def login(user)
+
+  def login(_user)
     session[:user_id] = nil
   end
 end

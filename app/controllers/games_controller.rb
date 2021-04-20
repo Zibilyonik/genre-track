@@ -1,11 +1,11 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[ show edit update destroy ]
+  before_action :set_game, only: %i[show edit update destroy]
 
   # GET /games or /games.json
   def index
     @games = current_user.games.all
     @total = 0
-    @games.each{|x| @total += x.amount}
+    @games.each { |x| @total += x.amount }
   end
 
   # GET /games/1 or /games/1.json
@@ -20,25 +20,24 @@ class GamesController < ApplicationController
   end
 
   # GET /games/1/edit
-  def edit
-  end
+  def edit; end
 
   def external
     @games = Game.all
     @genreless = []
-    @games.each {|x| @genreless << x if x.genres.empty?}
+    @games.each { |x| @genreless << x if x.genres.empty? }
     @genreless
   end
-  
+
   # POST /games or /games.json
   def create
     @genre = current_user.genres.all
     @game = current_user.games.build(game_params)
     @genres = params[:genre]
-    @genres.each{|x| @game.genres << current_user.genres.find(x)} unless @genres.nil?
+    @genres&.each { |x| @game.genres << current_user.genres.find(x) }
     respond_to do |format|
       if @game.save
-        format.html { redirect_to user_games_path(current_user), notice: "Game was successfully created." }
+        format.html { redirect_to user_games_path(current_user), notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +51,7 @@ class GamesController < ApplicationController
     @game = current_user.games.find_by(params[:id])
     respond_to do |format|
       if @game.update(game_params)
-        format.html { redirect_to user_games_path, notice: "Game was successfully updated." }
+        format.html { redirect_to user_games_path, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -69,13 +68,14 @@ class GamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = current_user.games.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def game_params
-      params.require(:game).permit(:name, :amount)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_game
+    @game = current_user.games.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def game_params
+    params.require(:game).permit(:name, :amount)
+  end
 end

@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :set_genre, only: %i[ show edit update destroy ]
+  before_action :set_genre, only: %i[show edit update destroy]
 
   # GET /genres or /genres.json
   def index
@@ -13,26 +13,26 @@ class GenresController < ApplicationController
 
   # GET /genres/new
   def new
-    @icons = ["adventure", "city_sim", "fighting", "horror", "life_sim", "musical", "platformer", "puzzle", "racing", "rougelike", "rpg", "shooter", "space_sim", "sport", "stealth", "strategy"]
+    @icons = %w[adventure city_sim fighting horror life_sim musical platformer puzzle racing
+                rougelike rpg shooter space_sim sport stealth strategy]
     @genre = current_user.genres.new
   end
 
   # GET /genres/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /genres or /genres.json
   def create
     @genre = current_user.genres.build(genre_params)
     @icon = params[:icon]
-    if @icon.nil?
-      @genre.icon = "none"
-    else
-      @genre.icon = @icon
-    end
+    @genre.icon = if @icon.nil?
+                    'none'
+                  else
+                    @icon
+                  end
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to user_genres_path(current_user), notice: "Genre was successfully created." }
+        format.html { redirect_to user_genres_path(current_user), notice: 'Genre was successfully created.' }
         format.json { render :show, status: :created, location: @genre }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class GenresController < ApplicationController
   def update
     respond_to do |format|
       if @genre.update(genre_params)
-        format.html { redirect_to user_genres_path(current_user), notice: "Genre was successfully updated." }
+        format.html { redirect_to user_genres_path(current_user), notice: 'Genre was successfully updated.' }
         format.json { render :show, status: :ok, location: @genre }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,13 +62,14 @@ class GenresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_genre
-      @genre = current_user.genres.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def genre_params
-      params.require(:genre).permit(:name, :icon)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_genre
+    @genre = current_user.genres.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def genre_params
+    params.require(:genre).permit(:name, :icon)
+  end
 end
