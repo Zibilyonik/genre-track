@@ -1,0 +1,14 @@
+<h1 class='title h1'>Log in</h1>
+
+<div class="row col-6 mx-auto">
+  <div class="col-6 mx-auto">
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :name, class: 'form-text main-text' %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: " mx-2 btn btn-primary" %>
+      <%= link_to "Sign Up", new_user_path, class: "signup-link btn" %>
+    <% end %>
+  </div>
+</div>
