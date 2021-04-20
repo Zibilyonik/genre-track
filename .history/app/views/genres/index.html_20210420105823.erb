@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class = "h1 text-center mb-5">Genres</h1>
+<h1 class = "h1 text-center mb-3">Genres</h1>
 
 
-  <% @genres.each do |genre| %>
+  <% @current_user.genres.each do |genre| %>
     <p>
       <strong class="main-text h4 row justify-content-center"><%= link_to "#{genre.name}", user_genre_path(current_user, genre.id), class: "p-1 main-text" %></strong>
     </p>
@@ -12,6 +12,6 @@
 
 
 
-<p class = "mt-5 col-6 mx-auto border-top">
+<p>
   <strong class="main-text h4 row justify-content-center"><%= link_to 'New Genre', new_user_genre_path(current_user), class: "p-1 main-text"%></strong>
 </p>

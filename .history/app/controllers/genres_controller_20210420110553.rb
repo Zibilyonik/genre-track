@@ -3,7 +3,8 @@ class GenresController < ApplicationController
 
   # GET /genres or /genres.json
   def index
-    @genres = Genre.order(:name)
+    @genres = current_user.genres.all
+    @ordered = @genres.order(:name)
   end
 
   # GET /genres/1 or /genres/1.json

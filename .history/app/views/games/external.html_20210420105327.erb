@@ -5,9 +5,9 @@
 <table class = "table table-hover">
   <thead>
     <tr>
-      <th class = "main-text text-center">Title</th>
-      <th class = "main-text text-center">Date</th>
-      <th class = "main-text px-3 text-center">Cost</th>
+      <th class = "main-text">Title</th>
+      <th class = "main-text">Date</th>
+      <th class = "main-text px-3">Cost</th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% genreless_games.each do |game| %>
       <tr>
-        <td class = "main-text text-center"><%= game.name %></td>
-        <td class = "main-text text-center creation-date"><%= game.created_at %></td>
-        <td class = "main-text text-center"><%= game.amount %></td>
+        <td class = "main-text"><%= game.name %></td>
+        <td class = "main-text align-middle creation-date"><%= game.created_at %></td>
+        <td class = "main-text"><%= game.amount %></td>
         <td><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
       </tr>
     <% end %>

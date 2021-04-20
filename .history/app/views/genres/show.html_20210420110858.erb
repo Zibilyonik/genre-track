@@ -22,11 +22,9 @@
   </tr>
   <tbody>
     <% @genre.games.each do |game| %>
-    <% @user = User.find(game.user_id)%>
     <tr>
       <td class = "text-center main-text"><%= game.name %></td>
       <td class = "text-center main-text"><%= game.amount %></td>
-      <td class = "text-center main-text"><%= @user.name %></td>
     </tr>
     <% end %>
   </tbody>
