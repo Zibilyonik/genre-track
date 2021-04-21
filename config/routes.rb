@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :users do
     resources :genres
     resources :games
   end
-  resources :sessions, only: [:create, :new, :destroy]
+  resources :sessions, only: %i[create new destroy]
   root 'sessions#new'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'

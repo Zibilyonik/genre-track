@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :login_required
 
   def login_required
-    if !logged_in?
-      redirect_to login_path, :notice => "Log in to create a game or a genre"
-    end
+    redirect_to login_path, notice: 'Log in to create a game or a genre' unless logged_in?
   end
 
   def logged_in?
@@ -32,14 +30,6 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
-  def genreless_games
-    @games = current_user.games.all
-    @genreless = []
-    @games.each{|x| @genreless << x if x.genres.empty?}
-    @genreless
-  end
-
-  helper_method :genreless_games
   helper_method :log_out
   helper_method :log_in
   helper_method :current_user

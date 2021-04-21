@@ -1,0 +1,14 @@
+<header class="navbar sticky-top navbar-inverse">
+<p id="notice" class = "row d-flex justify-content-center h4"><%= notice %></p>
+
+  <div class="container pt-3">
+    <nav class = "align-self-right ml-auto">
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "Home", user_path(current_user), class: "main-text" %></li>
+          <li><%= link_to "Log Out", '/logout', class: "main-text" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeTitleAndNameNullToFalse < ActiveRecord::Migration[6.1]
   def change
     change_column_null :games, :title, false
