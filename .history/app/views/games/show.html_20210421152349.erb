@@ -1,0 +1,34 @@
+<p id="notice" class = "row d-flex justify-content-center h4"><%= notice %></p>
+
+<p>
+  <h1 class = "h1 text-center">Title:</h1>
+  <p class = "h3 text-center"><%= @game.name %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center">Cost:</h1>
+  <p class = "h3 text-center"><%= @game.amount %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center">Genres</h1>
+</p>
+<table class = "table table-hover">
+  <tr>
+    <th scope="col" class = "text-center h4">Name</th>
+    <th scope="col" class = "text-center h4">Icon</th>
+  </tr>
+  <tbody>
+    <%= genre_shower(@game.genres.all) %>
+  </tbody>
+</table>
+
+<br>
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', user_game_path(current_user, @game), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" %></strong>
+</p>
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', user_games_path, class: "main-text" %></strong>
+</p>
+
