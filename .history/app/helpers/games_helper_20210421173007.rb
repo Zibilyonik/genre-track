@@ -7,7 +7,7 @@ module GamesHelper
         @table << content_tag(:td, x.created_at, class: 'main-text text-center creation-date align-middle')
         @table << content_tag(:td, x.amount, class: 'main-text text-center align-middle')
         unless external
-          @table << content_tag(:td, class: 'align-middle text-center main-text') do
+          @table << content_tag(:td, class: 'align-middle text-center') do
             image_tag("#{x.genres.first.icon}.png", size: '50x50', class: '') unless x.genres.empty?
           end
         end
