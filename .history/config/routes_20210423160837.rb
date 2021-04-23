@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :games, except: 'external'
   end
   resources :genres
-  resources :games, only: 'external'
   resources :sessions, only: %i[create new destroy]
   root 'sessions#new'
   get '/signup', to: 'users#new'

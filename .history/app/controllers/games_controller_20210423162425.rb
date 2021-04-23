@@ -10,7 +10,7 @@ class GamesController < ApplicationController
 
   # GET /games/1 or /games/1.json
   def show
-    @game = Game.find(params[:id])
+    @game = current_user.games.find(params[:id])
     @genres = @game.genres.all
   end
 
