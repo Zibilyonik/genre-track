@@ -1,4 +1,3 @@
-# rubocop:disable Layout/LineLength
 module GenresHelper
   def lister(genres)
     @line = ActiveSupport::SafeBuffer.new
@@ -10,7 +9,6 @@ module GenresHelper
     @line
   end
 
-  # rubocop:enable Layout/LineLength
   def genre_games_list(games)
     @row = ActiveSupport::SafeBuffer.new
     games.each do |x|
