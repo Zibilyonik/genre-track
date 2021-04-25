@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   # GET /games or /games.json
   def index
-    @games = current_user.games.order(created_at: :DESC)
+    @games = current_user.games.order(created_at: :DESC).includes(:genres)
     @total = 0
     @games.each { |x| @total += x.amount }
   end
