@@ -3,7 +3,9 @@
 one:
   name: MyString
   amount: 1.5
+  user_id: 1
 
 two:
   name: MyString
   amount: 1.5
+  user_id: 1
