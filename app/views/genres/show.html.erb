@@ -7,7 +7,12 @@
 
 <p>
   <h1 class = "h1 text-center mb-2">Icon:</h1>
-  <p class = "h3 text-center mb-4"><%= image_tag("#{@genre.icon}.png") if @genre.icon? %></p>
+  <p class = "h3 text-center mb-2"><%= image_tag("#{@genre.icon}.png") if @genre.icon? %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center mb-2">Created At:</h1>
+  <p class = "h3 text-center mb-2"><%= @genre.created_at %></p>
 </p>
 
 <p>
