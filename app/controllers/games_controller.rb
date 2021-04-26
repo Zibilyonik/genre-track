@@ -23,10 +23,7 @@ class GamesController < ApplicationController
   def edit; end
 
   def external
-    @games = Game.all
-    @genreless = []
-    @games.each { |x| @genreless << x if x.genres.empty? }
-    @genreless
+    @genreless = Game.includes(:genres).where(genres: {id: nil})
   end
 
   # POST /games or /games.json
