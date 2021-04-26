@@ -31,11 +31,12 @@ class GamesController < ApplicationController
     @genre = current_user.genres.all
     @game = current_user.games.build(game_params)
     @genres = params[:genre]
-    @genres&.each { |x| @game.genres << Genre.find(x) }
+    @game.amount = 0 if @game.amount.nil?
     respond_to do |format|
       if @game.save
+        @genres&.each { |x| @game.genres << Genre.find(x) }
         format.html { redirect_to user_games_path(current_user), notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
+        format.json { render :show, status: :created, location: user_game_path(current_user, @game) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
