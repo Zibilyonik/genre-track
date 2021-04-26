@@ -22,6 +22,10 @@ To access the running server, you can visit localhost:3000 or 127.0.0.1:3000 (th
 ## Live Version
 To access the live version of this app, you can visit [this page](https://genre-track.herokuapp.com).
 
+## Troubleshooting
+- If you need help with Ruby, check [this page](https://www.ruby-lang.org/en/documentation/installation/) for a guide.
+- If you need help with PostgreSQL, check [this page](https://www.postgresql.org/docs/13/index.html) for a guide.
+
 ## Contributors
 
 **Onur Onat Surmeli**
