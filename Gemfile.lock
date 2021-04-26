@@ -234,7 +234,6 @@ GEM
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
     ruby-progressbar (1.11.0)
-    ruby_gntp (0.3.4)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -314,7 +313,6 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (>= 3.9.0)
   rubocop (>= 1.0, < 2.0)
-  ruby_gntp
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
