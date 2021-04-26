@@ -3,14 +3,14 @@ class GamesController < ApplicationController
 
   # GET /games or /games.json
   def index
-    @games = current_user.games.order(created_at: :DESC)
+    @games = current_user.games.order(created_at: :DESC).includes(:genres)
     @total = 0
     @games.each { |x| @total += x.amount }
   end
 
   # GET /games/1 or /games/1.json
   def show
-    @game = current_user.games.find(params[:id])
+    @game = Game.find(params[:id])
     @genres = @game.genres.all
   end
 
@@ -23,10 +23,7 @@ class GamesController < ApplicationController
   def edit; end
 
   def external
-    @games = Game.all
-    @genreless = []
-    @games.each { |x| @genreless << x if x.genres.empty? }
-    @genreless
+    @genreless = Game.includes(:genres).where(genres: { id: nil })
   end
 
   # POST /games or /games.json
@@ -71,7 +68,7 @@ class GamesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_game
-    @game = current_user.games.find(params[:id])
+    @game = Game.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

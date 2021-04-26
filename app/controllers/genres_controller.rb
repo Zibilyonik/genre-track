@@ -3,8 +3,7 @@ class GenresController < ApplicationController
 
   # GET /genres or /genres.json
   def index
-    @genres = Genre.all
-    @ordered = @genres.order('LOWER(name)')
+    @genres = Genre.order('LOWER(name)')
   end
 
   # GET /genres/1 or /genres/1.json
@@ -33,7 +32,7 @@ class GenresController < ApplicationController
                   end
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to user_genres_path(current_user), notice: 'Genre was successfully created.' }
+        format.html { redirect_to genres_path, notice: 'Genre was successfully created.' }
         format.json { render :show, status: :created, location: @genre }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +45,7 @@ class GenresController < ApplicationController
   def update
     respond_to do |format|
       if @genre.update(genre_params)
-        format.html { redirect_to user_genres_path(current_user), notice: 'Genre was successfully updated.' }
+        format.html { redirect_to genres_path, notice: 'Genre was successfully updated.' }
         format.json { render :show, status: :ok, location: @genre }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,9 +56,9 @@ class GenresController < ApplicationController
 
   # DELETE /genres/1 or /genres/1.json
   def destroy
-    @genre = current_user.genres.find(params[:id])
+    @genre = Genre.find(params[:id])
     @genre.destroy!
-    redirect_to user_genres_path(current_user)
+    redirect_to genres_path
   end
 
   private

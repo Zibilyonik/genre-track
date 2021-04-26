@@ -7,7 +7,12 @@
 
 <p>
   <h1 class = "h1 text-center mb-2">Icon:</h1>
-  <p class = "h3 text-center mb-4"><%= image_tag("#{@genre.icon}.png") if @genre.icon? %></p>
+  <p class = "h3 text-center mb-2"><%= image_tag("#{@genre.icon}.png") if @genre.icon? %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center mb-2">Created At:</h1>
+  <p class = "h3 text-center mb-2"><%= @genre.created_at %></p>
 </p>
 
 <p>
@@ -28,8 +33,8 @@
 
 
 <p>
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', user_genre_path(current_user, @genre), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" if @genre.user_id == current_user.id %></strong>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', genre_path(@genre), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" if @genre.user_id == current_user.id %></strong>
 </p>
 <p>
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', user_genres_path, class: "main-text" %></strong>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', genres_path, class: "main-text" %></strong>
 </p>

@@ -3,6 +3,7 @@ require 'test_helper'
 class GamesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @game = games(:one)
+    @user = user(:one)
   end
 
   test 'should get index' do
@@ -11,20 +12,21 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get new_game_url
+    get new_user_game_url
     assert_response :success
   end
 
   test 'should create game' do
     assert_difference('Game.count') do
-      post games_url, params: { game: { developer: @game.developer, title: @game.title } }
+      post user_games_url,
+           params: { user: { id: @user.id }, game: { amount: @game.amount, name: @game.name, user_id: @user.id } }
     end
 
-    assert_redirected_to game_url(Game.last)
+    assert_redirected_to game_url(@user, Game.last)
   end
 
   test 'should show game' do
-    get game_url(@game)
+    get game_url(@user, @game)
     assert_response :success
   end
 
@@ -34,15 +36,15 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update game' do
-    patch game_url(@game), params: { game: { developer: @game.developer, title: @game.title } }
-    assert_redirected_to game_url(@game)
+    patch game_url(@game), params: { game: { amount: @game.amount, name: @game.name, user_id: @user.id } }
+    assert_redirected_to games_url(@user, @game)
   end
 
   test 'should destroy game' do
     assert_difference('Game.count', -1) do
-      delete game_url(@game)
+      delete games_url(@user, @game)
     end
 
-    assert_redirected_to games_url
+    assert_redirected_to user_games_url
   end
 end

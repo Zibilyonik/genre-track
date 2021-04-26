@@ -3,9 +3,9 @@
 <h1 class = "h1 text-center mb-5">Genres</h1>
 
 
-  <%= lister(@ordered) %>
+  <%= lister(@genres) %>
 
 
 <p class = "mt-5 col-6 mx-auto border-top">
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'New Genre', new_user_genre_path(current_user), class: "p-1 main-text"%></strong>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'New Genre', new_genre_path, class: "p-1 main-text"%></strong>
 </p>

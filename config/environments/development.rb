@@ -3,6 +3,14 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
   config.assets.debug = false
   config.assets.digest = false
