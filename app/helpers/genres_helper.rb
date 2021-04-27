@@ -21,4 +21,13 @@ module GenresHelper
     end.join.html_safe
     @row
   end
+
+  def genre_icons_lister(icons)
+    @line = ActiveSupport::SafeBuffer.new
+    icons.each do |x|
+      @line << image_tag("#{x}.png", alt: "#{x}", size: '50x50', class: "m-1")
+      @line << radio_button_tag(:icon, "#{x}")
+    end
+    @line
+  end
 end

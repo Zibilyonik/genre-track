@@ -8,11 +8,8 @@
 
   <h1 class = "h1 text-center mt-2">Icon</h1>
 
-  <div class="field d-flex justify-content-center mb-5 row col-8 mx-auto">
-    <% @icons.each do |x|  %>
-        <%= image_tag("#{x}.png", alt: "#{x}", size: '50x50', class: "m-1") %>
-      	<%= radio_button_tag :icon, "#{x}" %>
-    <% end%>
+  <div class="field d-flex justify-content-center mb-5 row col-12 mx-auto">
+    <%= genre_icons_lister(@icons)  %>
   </div>
 
   <div class="actions main-text h4 row justify-content-center mt-3">
