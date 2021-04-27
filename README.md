@@ -13,11 +13,14 @@ This is a project created to allow users to track the games they own, their valu
 ## Getting Started
 You will need Ruby ver. 3.0.0 installed on your system, which you can do so by visiting https://www.ruby-lang.org/en/downloads/ and following the directions from there depending on your system. 
 
-Afterwards, please install the required gems by running `bundle:install`.
-Next step is to create the database for the app, which can be set up by running `rails db:create db:migrate`. 
+Afterward, please install the required gems by running `bundle:install`.
+The next step is to create the database for the app, which can be set up by running `rails db:create db:migrate`. 
 Finally, you can run **rails s** command to start up the server and use it as you will.
 
 To access the running server, you can visit localhost:3000 or 127.0.0.1:3000 (the default port, may change if you've used a different setting).
+
+## Running Tests
+To run the tests written for this project, you just need to run the code `bundle exec rpsec`. Depending on the changes you've made to the project, they may pass or fail.
 
 ## Live Version
 To access the live version of this app, you can visit [this page](https://genre-track.herokuapp.com).
