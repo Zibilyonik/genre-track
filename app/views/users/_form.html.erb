@@ -1,12 +1,10 @@
-<%= form_with(model: user) do |form| %>
+<div class="row">
+  <div class="col mx-2 col-md-6 mx-md-auto">
+    <%= form_with(model: user) do |f| %>
+      <%= f.label :name, class: 'form-text main-text' %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-  <h1 class = "h1 text-center">Name</h1>
-
-  <div class="field d-flex justify-content-center my-2">
-    <%= form.text_field :name, class: "form-control col-5" %>
+      <%= f.submit "Create User", class: " my-2 btn signup-link" %>
+    <% end %>
   </div>
-
-  <div class="actions main-text h4 row justify-content-center my-3">
-    <%= form.submit "Create User", class: "p-1 main-text submit rounded h4 border-white col-5" %>
-  </div>
-<% end %>
+</div>
