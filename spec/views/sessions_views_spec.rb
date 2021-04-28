@@ -14,4 +14,20 @@ RSpec.describe 'Genre Track landing page', type: :system do
       expect(page).to have_current_path('/login')
     end
   end
+
+  describe 'not allow guests in' do
+    it 'blocks guests from loading in to the app' do
+      visit external_path
+      expect(page).not_to have_current_path('/external')
+    end
+  end
+
+  describe 'expect wrong username' do
+    it 'checks if the username is in database' do
+      visit login_path
+      fill_in('Name', with: 'Test5')
+      click_button('Log in')
+      expect(page).to have_current_path('/')
+    end
+  end
 end

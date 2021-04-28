@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :users do
-    resources :games, except: 'external'
+  resources :users, except: %i[index edit update] do
+    resources :games, except: %i[external edit update]
   end
-  resources :genres
+  resources :genres, except: %i[edit update]
   resources :games, only: 'external'
   resources :sessions, only: %i[create new destroy]
   root 'sessions#new'
