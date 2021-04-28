@@ -10,7 +10,8 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
-/.history/*
+.history/
+.vscode/
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
