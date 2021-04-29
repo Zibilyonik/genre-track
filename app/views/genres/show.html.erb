@@ -32,9 +32,7 @@
 
 
 
-<p>
-  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', genre_path(@genre), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" if @genre.user_id == current_user.id %></strong>
-</p>
+<%= genre_destroy_button(@genre) %>
 <p>
   <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', genres_path, class: "main-text" %></strong>
 </p>

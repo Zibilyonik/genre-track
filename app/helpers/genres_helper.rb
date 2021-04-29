@@ -30,4 +30,12 @@ module GenresHelper
     end
     @line
   end
+
+  def genre_destroy_button(genre)
+    return unless genre.user_id == current_user.id
+
+    content_tag(:p,
+                content_tag(:strong,
+                            link_to('Destroy', genre_path(genre), method: :delete, data: { confirm: 'Are you sure?' }, class: 'main-text'), class: 'main-text h4 row justify-content-center')) # rubocop:disable Layout/LineLength
+  end
 end

@@ -29,4 +29,12 @@ module GamesHelper
     end
     @row
   end
+
+  def game_destroy_button(game)
+    return unless game.user_id == current_user.id
+
+    content_tag(:p,
+                content_tag(:strong,
+                            link_to('Destroy', user_game_path(current_user, game), method: :delete, data: { confirm: 'Are you sure?' }, class: 'main-text'), class: 'main-text h4 row justify-content-center')) # rubocop:disable Layout/LineLength
+  end
 end
