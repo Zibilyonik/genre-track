@@ -17,6 +17,8 @@
   width: 100%;
   background-color: rgb(204, 236, 245);
   text-align: center;
+  color: rgb(56, 119, 153) !important;
+  font-size: 1.4rem !important;
 }
 
 .signup-link:hover {
@@ -26,6 +28,7 @@
 .login-btn {
   background-color: rgb(99, 180, 55);
   color: rgb(248, 241, 227);
+  font-size: 1.6rem !important;
 }
 
 .login-btn:hover {
