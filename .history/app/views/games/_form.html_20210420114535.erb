@@ -1,0 +1,32 @@
+<%= form_with(model: game) do |form| %>
+  <% if game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+        <% game.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1 class = "h1 text-center">Name</h1>
+
+  <div class="field d-flex justify-content-center">
+    <%= form.text_field :name, class: "form-control col-8" %>
+  </div>
+
+  <h1 class = "h1 text-center mt-2">Amount</h1>
+
+  <div class="field d-flex justify-content-center">
+    <%= form.number_field :amount, step: 0.01,  class: "form-control col-8" %>
+  </div>
+  <h1 class = "h1 text-center">Genres</h1>
+  <p class = "main-text text-center"> (Hold Shift to select multiple options)</p>
+  <div class = "d-flex justify-content-center mb-3">
+    <%= select_tag :genre, options_from_collection_for_select(Genre.all, :id, :name), {multiple: true, class:"form-control col-8"} %>
+  </div>
+  <div class="actions main-text h4 row justify-content-center">
+    <%= form.submit "Create Game", class: "p-1 main-text submit rounded h2 border-white" %>
+  </div>
+<% end %>

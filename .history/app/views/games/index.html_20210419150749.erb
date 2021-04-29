@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class = "h1 text-center my-5">Games</h1>
+
+<table class = "table table-hover">
+  <thead>
+    <tr>
+      <th class = "main-text col">Title</th>
+      <th class = "main-text col px-3">Cost</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @current_user.games.each do |game| %>
+      <tr>
+        <td class = "main-text align-middle"><%= game.name %> <span class = "align-middle main-text ml-5 col-3"><%= image_tag("#{game.genres.first.icon}.png", size: "50x50") %></span></td>
+        <td class = "main-text align-middle"><%= game.amount %></td>
+
+        <td class = "align-middle"><%= link_to 'Show', user_game_path(current_user, game.id), class: "main-text" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'New Game', new_user_game_path(current_user), class: "p-1 main-text"%></strong>
+</p>
+

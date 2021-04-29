@@ -1,0 +1,23 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1 class = "h1 text-center">Name</h1>
+
+  <div class="field d-flex justify-content-center my-2">
+    <%= form.text_field :name, class: "form-control col-5" %>
+  </div>
+
+  <div class="actions main-text h4 row justify-content-center my-3">
+    <%= form.submit "Create User", class: "p-1 main-text submit rounded h2 border-white" %>
+  </div>
+<% end %>

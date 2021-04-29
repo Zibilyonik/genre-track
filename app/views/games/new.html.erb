@@ -1,0 +1,6 @@
+<h1 class = "h1 text-center my-5">New Game</h1>
+
+<%= render 'form', game: @game %>
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', user_games_path(current_user), class: "p-1 main-text"%></strong>
+</p>

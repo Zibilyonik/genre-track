@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col mx-2 col-md-6 mx-md-auto px-0">
+    <%= form_with(model: genre) do |form| %>
+
+      <h1 class = "h1 text-center">Name</h1>
+
+      <div class="field d-flex justify-content-center">
+        <%= form.text_field :name, class: "form-control col-8" %>
+      </div>
+
+      <h1 class = "h1 text-center mt-2">Icon</h1>
+
+      <div class="field d-flex justify-content-center mb-5 row col-12 mx-n1">
+        <%= genre_icons_lister(@icons)  %>
+      </div>
+
+      <div class="actions main-text h4 row justify-content-center mt-3">
+        <%= form.submit "Create Genre", class: "mt-2 btn login-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

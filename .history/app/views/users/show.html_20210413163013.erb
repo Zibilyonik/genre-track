@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p class="row d-flex justify-content-center">
+  <strong class="main-text h2 mb-5 font-weight-bold">Welcome, <%= @user.username %>!</strong>
+</p>
+
+<p>
+  <strong class="main-text h2 row justify-content-center">Games</strong>
+  <br>
+  <% @user.games.each do |game| %>
+      <tr>
+        <td><p class="h5 row justify-content-center"><%= link_to "#{game.title}", user_game_path(@user, game.id), class: "main-text" %></p></td>
+        <% if @user = current_user %>
+          <td><%= link_to 'Destroy', user_game_path(current_user, game.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+      <br>
+    <% end %>
+</p>
+
+<p>
+  <strong class="main-text h2 row justify-content-center">Genres:</strong>
+  <br>
+  <% @user.genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+      <td><%= genre.description %></td>
+      <td><%= link_to 'Show', user_genre_path(@user, genre.id) %></td>
+      <% if @user = current_user %>
+        <td><%= link_to 'Destroy', user_genre_path(current_user, genre.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+    <br>
+  <% end %>
+</p>
+
+<div class="row d-flex flex-column mt-5">
+  <div class="btn btn-primary">
+    <%= link_to 'Genres', user_genres_path(current_user), class: "p-1 main-text"%>
+  </div>
+  <div class="btn btn-primary mt-2">
+    <%= link_to 'Games', user_games_path(current_user), class: "p-1 main-text" %>
+  </div>
+</div>

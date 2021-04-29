@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col mx-2 col-md-6 mx-md-auto">
+    <%= form_with(model: user) do |f| %>
+      <%= f.label :name, class: 'form-text main-text' %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.submit "Create User", class: " my-2 btn signup-link" %>
+    <% end %>
+  </div>
+</div>

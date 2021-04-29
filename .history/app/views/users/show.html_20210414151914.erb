@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p class="row d-flex justify-content-center">
+  <strong class="main-text h2 mb-5 font-weight-bold">Welcome, <%= @user.name %>!</strong>
+</p>
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Games', user_games_path(current_user), class: "p-1 main-text" %></strong>
+</p>
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Games Without Genres', '/users/:id/external', class: "p-1 main-text" %></strong>
+</p>
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Genres', user_genres_path(current_user), class: "p-1 main-text"%></strong>
+</p>

@@ -1,0 +1,5 @@
+<h1>Editing Game</h1>
+
+<%= render 'form', game: user_game(current_user, @game) %>
+
+<%= link_to 'Back', user_games_path(current_user) %>

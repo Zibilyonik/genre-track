@@ -1,0 +1,50 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.title {
+  text-align: center;
+  color: white;
+  margin-top: 20vh;
+}
+
+.form-text {
+  font-size: large;
+  font-weight: bold;
+}
+
+.signup-link {
+  width: 100%;
+  background-color: rgb(204, 236, 245);
+  text-align: center;
+  color: rgb(56, 119, 153) !important;
+  font-size: 1.4rem !important;
+}
+
+.signup-link:hover {
+  background-color: rgb(231, 240, 243);
+}
+
+.login-btn {
+  background-color: rgb(99, 180, 55);
+  color: rgb(248, 241, 227);
+  font-size: 1.6rem !important;
+}
+
+.login-btn:hover {
+  background-color: rgb(120, 218, 66);
+  color: white;
+}
+
+.btn {
+  width: 100%;
+}
+
+.h1 {
+  color: white !important;
+}
+
+.h3,
+.h4 {
+  color: white !important;
+}

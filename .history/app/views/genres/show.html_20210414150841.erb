@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @genre.name %>
+</p>
+
+
+<tbody>
+  <% @genre.games.each do |game| %>
+      <tr>
+        <td><%= game.name %></td>
+      </tr>
+      <% end %>
+</tbody>
+
+<%= link_to 'Destroy', user_genre_path(current_user, @genre), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', user_genres_path %>

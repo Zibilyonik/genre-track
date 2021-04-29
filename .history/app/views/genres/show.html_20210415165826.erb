@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1 class = "h1 text-center mb-2">Title:</h1>
+  <p class = "h3 text-center mb-2"><%= @genre.name %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center mb-2">Icon:</h1>
+  <p class = "h3 text-center mb-4"><%= @genre.icon %></p>
+</p>
+
+<p>
+  <h1 class = "h1 text-center">Games</h1>
+</p>
+
+<table class = "table table-hover">
+  <tr>
+    <th scope="col" class = "text-center h4">Title</th>
+    <th scope="col" class = "text-center h4">Cost</th>
+  </tr>
+  <tbody>
+    <% @games.each do |game| %>
+    <tr>
+      <td class = "text-center main-text"><%= game.name %></td>
+      <td><%= game.amount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Destroy', user_genre_path(current_user, @genre), method: :delete, data: { confirm: 'Are you sure?' }, class: "main-text" %></strong>
+</p>
+<p>
+  <strong class="main-text h4 row justify-content-center"><%= link_to 'Back', user_genres_path, class: "main-text" %></strong>
+</p>
