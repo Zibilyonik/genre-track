@@ -21,7 +21,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'redirect to login' do
     it 'should redirect guest users' do
-      get :index
+      get :show, params: { id: '1'}
       should redirect_to('/login')
     end
   end
