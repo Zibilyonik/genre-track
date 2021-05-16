@@ -1,5 +1,0 @@
-<h1>New Game</h1>
-
-<%= render 'form', game: @game %>
-<%= select_tag :genre, options_from_collection_for_select(current_user.genres, :id, :name), multiple: true %>
-<%= link_to 'Back', user_games_path %>

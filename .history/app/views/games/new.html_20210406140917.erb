@@ -1,5 +1,0 @@
-<h1>New Game</h1>
-
-<%= render 'form', game: @game %>
-<% options = options_from_collection_for_select(current_user.genres.all, 'name', 'description') %>
-<%= link_to 'Back', games_path %>
